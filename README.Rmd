@@ -1,0 +1,75 @@
+---
+title: "README"
+author: "omar gonzáles díaz"
+date: "21 de octubre de 2015"
+output: html_document
+---
+
+#Getting and Cleanning data
+
+### Introduction
+
+This script was made for the Getting and cleaning data class from (Coursera.org).
+
+The script read in all the data contained in the work directory folder. Then it formate it and clean it. 
+
+
+### Libraries needed
+
+We use this 2 packages: `dplyr` and `reshape2`.
+
+
+## Steps 
+
+### Getting the data
+
+First, we load the data. The data comes in a zip file, after extracting it's content, we proceed to load the files for the test and training parts.
+
+
+The information is not a data.frame or matrix. What we find are vectors containing the ID of the patients, the activities codes, and the values of this activities. 
+
+However, the zip files also contains a text files indicating what the format should be for this files. 
+
+
+#### Combining test and training data
+
+After formating the data, we need to make one data frame containing all the information.
+
+We have used `rbind()` to merge the data frames(test and trainning) into one.
+
+### Extracts only the measurements on the mean and standard deviation for each measurement. 
+
+
+The task also mentions that we should extract only the columns that contains values that are the standard deviation or the mean of each measurment. 
+
+
+To do this we've used regula expresions to only select columns with this letters: `std` and `mean`.
+
+### Uses descriptive activity names to name the activities in the data set
+
+The activities column had values from 1 to 5. But this were not very descriptive. Instead we have replaced this values for their equivalent in text: 1 to "WALKING", 2 to "WALKING UPSTAIRS", 3 to "WALKING DOWNSTAIRS",
+4 to "SITTING", 5 to "STANDING", and 6 to "LAYING".
+
+
+### Appropriately labels the data set with descriptive variable names
+
+We have transform every variable name to be lower case and remove any "-" from them. This will make it easier to work with the variable names.
+
+
+### From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+
+We have created a new data frame in which every variable is in one column.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
